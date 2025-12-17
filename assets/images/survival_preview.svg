@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Survival Notebook preview">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#4b8bbe"/>
+      <stop offset="1" stop-color="#2b86c5"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#g)" rx="12" />
+  <g fill="#fff" font-family="Segoe UI, Roboto, Arial" font-weight="700">
+    <text x="40" y="90" font-size="34">Survival Prediction</text>
+    <text x="40" y="130" font-size="16" fill-opacity="0.9">Notebook preview — click to open on nbviewer</text>
+  </g>
+  <g transform="translate(440,70)">
+    <rect x="0" y="0" width="160" height="100" rx="6" fill="#fff" opacity="0.08" />
+    <text x="12" y="40" fill="#fff" font-family="Segoe UI, Roboto, Arial" font-size="14">Accuracy</text>
+    <text x="12" y="72" fill="#fff" font-family="Segoe UI, Roboto, Arial" font-size="28">0.83</text>
+  </g>
+</svg>
