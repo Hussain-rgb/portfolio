@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussain Ragab | Data Analyst & Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #2b86c5; /* slightly deeper blue */
+            --accent: #e74c3c;
+            --accent-dark: #c0392b;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --muted: #95a5a6;
+            --success: #27ae60;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--secondary), #2b86c5);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms, opacity 180ms;
+            box-shadow: 0 6px 14px rgba(40, 72, 110, 0.06);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 14px 30px rgba(43, 134, 197, 0.16);
+        }
+
+        .btn:active { transform: translateY(-1px) scale(0.995); }
+        .btn:focus { outline: 3px solid rgba(43,134,197,0.18); outline-offset: 2px; }
+
+        .btn-accent {
+            background: linear-gradient(135deg, #e74c3c, #d64536);
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 14px 30px rgba(231,76,60,0.16);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        .img-modal { background: rgba(0,0,0,0.9); }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Hero card with 3D page-flip animation */
+        .hero-card { position: relative; width: 350px; height: 350px; border-radius: 10px; overflow: visible; margin: 0 auto; perspective: 1200px; }
+        .hero-card-inner { position: relative; width:100%; height:100%; transform-style: preserve-3d; transition: transform 700ms cubic-bezier(.2,.9,.3,1); border-radius: 10px; box-shadow: 0 10px 30px rgba(52,152,219,0.18); transform-origin: left center; }
+        .hero-card.flipped .hero-card-inner { transform: rotateY(180deg); }
+
+        .info-card, .profile-photo { position: absolute; inset: 0; width: 100%; height: 100%; display:flex; align-items:center; justify-content:center; backface-visibility: hidden; border-radius: 10px; overflow: hidden; }
+        .info-card { color: white; background: linear-gradient(135deg,var(--secondary), #2b86c5); }
+        .info-card .info-inner { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; padding:20px; }
+
+        .profile-photo { object-fit: cover; object-position: 85% center; width:100%; height:100%; transform: rotateY(180deg); }
+        @media (max-width:720px) { .profile-photo { object-position: 78% center; } .hero-card-inner { transform-origin: center center; } }
+
+        .btn.btn-ghost { background: transparent; color: #0b0b0b; border: 1px solid rgba(0,0,0,0.08); padding: 8px 12px; border-radius:6px; font-weight:700; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+        .btn.btn-ghost:hover { background: rgba(0,0,0,0.04); transform: translateY(-2px); color: #0b0b0b; }
+        .hero-card .btn { position:absolute; left:12px; bottom:12px; z-index:60; pointer-events:auto; cursor:pointer; }
+        @media (max-width:720px){ .hero-card { width: 280px; height: 280px; } }
+        
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .badge {
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+        }
+        
+        .badge i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .skill-tag.highlight {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(18,24,34,0.05);
+            transition: transform 260ms cubic-bezier(.22,.9,.28,1), box-shadow 260ms;
+            will-change: transform, box-shadow;
+            position: relative;
+        }
+        
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transition: opacity 260ms;
+            opacity: 0;
+        }
+
+        /* Contact area: styled buttons row that fills space and animates */
+        .contact-form { padding: 18px; border-radius: 12px; background: linear-gradient(180deg, rgba(243,246,250,0.6), rgba(255,255,255,0.65)); min-height: 140px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; box-shadow: 0 8px 30px rgba(11,28,50,0.04); }
+        .contact-form .contact-note { color: var(--muted); margin: 0 0 8px 0; }
+        .contact-buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; align-items:center; width:100%; max-width:920px; }
+
+        .contact-buttons .btn { padding: 10px 14px; border-radius:10px; font-weight:700; display:inline-flex; align-items:center; gap:8px; min-width:120px; justify-content:center; color:white; box-shadow: 0 8px 20px rgba(11,28,50,0.08); transition: transform 260ms, box-shadow 260ms, filter 260ms; opacity:0; transform: translateY(12px) scale(0.98); }
+        .contact-buttons .btn:hover{ transform: translateY(-6px) scale(1.025); box-shadow: 0 18px 40px rgba(11,28,50,0.12); filter: saturate(1.08); }
+        .btn-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .btn-messenger { background: linear-gradient(135deg,#00A0FF,#0066D6); }
+        .btn-linkedin { background: #0077B5; }
+        .btn-facebook { background: #1877F2; }
+        .btn-email { background: linear-gradient(135deg,#ffffff,#f3f4f6); color:#0b0b0b; border:1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 22px rgba(11,28,50,0.04); }
+        .btn-email i, .btn-email span { color: #0b0b0b !important; }
+        .btn-email:hover { background: linear-gradient(135deg,#fbfbfb,#eef2f4); transform: translateY(-6px) scale(1.02); }
+        .btn-email:focus { outline: 3px solid rgba(11,28,50,0.06); outline-offset: 2px; }
+
+        @keyframes popIn { from { opacity:0; transform: translateY(12px) scale(0.98); } to { opacity:1; transform: translateY(0) scale(1); } }
+        .btn.popin { animation: popIn 420ms cubic-bezier(.2,.9,.3,1) both; }
+
+        @media (max-width:720px){ .contact-buttons .btn { min-width: 44%; } }
+        
+        .project-card:hover {
+            transform: translateY(-6px) scale(1.008);
+            box-shadow: 0 24px 48px rgba(30,50,90,0.10);
+        }
+
+        .project-card .project-content .project-links a { transition: transform 180ms, box-shadow 180ms; }
+        .project-card:hover .project-content .project-links a { transform: translateY(-2px); }
+        /* Badges & small elements */
+        .badge { transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms; }
+        .badge:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 10px 30px rgba(43,134,197,0.08); }
+
+        /* Section title animation */
+        .section-title { opacity: 0; transform: translateY(12px); transition: all 520ms cubic-bezier(.2,.9,.3,1); }
+        .section-title.in-view { opacity: 1; transform: translateY(0); }
+
+        /* Generic fade-up for cards */
+        .fade-up { opacity: 0; transform: translateY(16px); transition: all 520ms cubic-bezier(.2,.9,.3,1); }
+        .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+        /* Modal opening animation */
+        @keyframes modalOpen {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .img-modal.open { display: flex; animation: modalOpen 200ms cubic-bezier(.22,.9,.28,1); }
+
+        .img-modal-content { border-radius: 6px; }
+
+        /* Subtle nav link hover */
+        nav ul li a { position: relative; }
+        nav ul li a:after { content: ''; position: absolute; left: 0; right: 0; height: 3px; bottom: -8px; background: linear-gradient(90deg,var(--secondary),#2b86c5); transform: scaleX(0); transform-origin: left; transition: transform 180ms cubic-bezier(.2,.9,.3,1); border-radius: 3px; }
+        nav ul li a:hover:after { transform: scaleX(1); }
+
+        /* small responsive tweaks for animations */
+        @media (prefers-reduced-motion: reduce) {
+            .section-title, .fade-up, .project-card, .img-modal.open { transition: none !important; animation: none !important; }
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-size: 3rem;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer; /* indicates image is clickable */
+        }
+
+        /* Portrait (mobile screenshots) */
+        .project-img.portrait {
+            height: 320px;
+        }
+
+        .project-img.portrait img {
+            object-position: center top;
+        }
+
+        /* Lightbox / Modal for full-size previews */
+        .img-modal {
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .img-modal.open { display: flex; animation: modalOpen 200ms cubic-bezier(.22,.9,.28,1); }
+
+        .img-modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-radius: 6px;
+        }
+
+        .img-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            font-size: 34px;
+            color: white;
+            cursor: pointer;
+            opacity: 0.95;
+        }
+
+        .img-modal-caption {
+            color: rgba(255,255,255,0.85);
+            margin-top: 12px;
+            text-align: center;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .tech-tag {
+            background-color: var(--light);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        /* Interactive Examples */
+        .examples-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .example-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .example-card h3 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .example-card h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .example-controls {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        /* SQL controls grid for better layout */
+        .sql-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            align-items: center;
+        }
+        .sql-controls .control {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .sql-controls .control.buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 8px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .example-output {
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            min-height: 100px;
+            margin-top: 15px;
+            border-left: 4px solid rgba(43,134,197,0.12);
+        }
+
+        .tech-tag { transition: background 220ms, transform 180ms; }
+        .tech-tag:hover { transform: translateY(-4px); background: linear-gradient(90deg, rgba(43,134,197,0.12), rgba(43,134,197,0.06)); }
+
+        /* modal subtle blur */
+        .img-modal { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+        
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 70px;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-date {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .projects-container,
+            .skills-container,
+            .examples-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Hussain<span>Ragab</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Hussain Ragab Abdul Hasseb</h1>
+                <h3>MIS Graduate | Business Intelligence & Data Analyst | Full‑Stack & AI‑Assisted Developer</h3>
+                <p>MIS graduate with strong hands‑on experience in Business Intelligence, Data Analysis, Media Buying, and AI‑assisted Full‑Stack Development. Proven ability to translate business problems into data‑driven and technology‑enabled solutions.</p>
+                
+                <div class="hero-badges">
+                    <div class="badge"><i class="fas fa-chart-bar"></i> Power BI</div>
+                    <div class="badge"><i class="fas fa-database"></i> SQL</div>
+                    <div class="badge"><i class="fas fa-code"></i> Python</div>
+                    <div class="badge"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="badge"><i class="fas fa-robot"></i> AI Integration</div>
+                    <div class="badge"><i class="fas fa-ad"></i> Meta Ads</div>
+                </div>
+                
+                <a href="#projects" class="btn">View My Projects</a>
+                <a href="#contact" class="btn btn-accent">Contact Me</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-card" id="heroCard" role="region" aria-label="Profile card">
+                    <div class="hero-card-inner" id="heroInner">
+                        <div class="info-card" id="infoCard">
+                            <div class="info-inner">
+                                <i class="fas fa-user-tie" style="font-size: 5rem; margin-bottom: 18px; color: white;"></i>
+                                <h2 style="color: white; margin:0;">Hussain Ragab</h2>
+                                <p style="color: white; text-align: center; max-width: 80%;">Data Analyst & Full-Stack Developer</p>
+                            </div>
+                        </div>
+
+                        <img id="profilePhoto" class="profile-photo" src="assets/images/pf.jpeg" alt="Hussain Ragab portrait" onerror="this.style.display='none';document.getElementById('swapBtn')?.style.display='none';">
+                    </div>
+
+                    <button id="swapBtn" type="button" class="btn btn-ghost" aria-pressed="false" title="Show profile photo">View Photo</button>
+                </div>
+            </div>
+            <script>
+                (function(){
+                    const swapBtn = document.getElementById('swapBtn');
+                    const profilePhoto = document.getElementById('profilePhoto');
+                    const infoCard = document.getElementById('infoCard');
+                    const heroCard = document.getElementById('heroCard');
+                    if (!swapBtn || !profilePhoto || !infoCard || !heroCard) return;
+
+                    function showPhoto(yes){
+                        try { console.log('showPhoto called', yes); } catch(e){}
+                        if (yes){
+                            heroCard.classList.add('flipped');
+                            swapBtn.textContent = 'View Card';
+                            swapBtn.setAttribute('aria-pressed','true');
+                            localStorage.setItem('heroPref','photo');
+                        } else {
+                            heroCard.classList.remove('flipped');
+                            swapBtn.textContent = 'View Photo';
+                            swapBtn.setAttribute('aria-pressed','false');
+                            localStorage.setItem('heroPref','card');
+                        }
+                    }
+
+                    // debug init
+                    try {
+                        console.log('hero toggle init');
+                    } catch(e){}
+
+                    swapBtn.addEventListener('click', ()=>{
+                        try { console.log('swapBtn clicked, current pressed=', swapBtn.getAttribute('aria-pressed')); } catch(e){}
+                        const showingPhoto = swapBtn.getAttribute('aria-pressed') === 'true';
+                        showPhoto(!showingPhoto);
+                    });
+
+                    // also allow clicking the info card or the photo to toggle via flip
+                    infoCard.addEventListener('click', (e)=>{
+                        if (e.target.closest('a,button')) return;
+                        try { console.log('infoCard clicked'); } catch(e){}
+                        const showingPhoto = swapBtn.getAttribute('aria-pressed') === 'true';
+                        showPhoto(!showingPhoto);
+                    });
+                    profilePhoto.addEventListener('click', ()=>{ try { console.log('profilePhoto clicked'); } catch(e){}; const showingPhoto = swapBtn.getAttribute('aria-pressed') === 'true'; showPhoto(!showingPhoto); });
+
+                    profilePhoto.addEventListener('error', ()=>{
+                        profilePhoto.style.display = 'none';
+                        swapBtn.style.display = 'none';
+                    });
+
+                    // initialize immediately (fallback if DOMContentLoaded already fired)
+                    try {
+                        const pref = localStorage.getItem('heroPref') || 'card';
+                        showPhoto(pref === 'photo');
+                        try { console.log('heroPref loaded=', pref); } catch(e){}
+                    } catch(e) { showPhoto(false); }
+
+                    // keyboard activation for accessibility (Enter / Space)
+                    swapBtn.addEventListener('keydown', (e)=>{
+                        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                            e.preventDefault();
+                            swapBtn.click();
+                        }
+                    });
+
+                    // ensure image becomes visible after it's loaded
+                    profilePhoto.addEventListener('load', ()=>{
+                        // ensure we can see it when flipped
+                        profilePhoto.style.opacity = '1';
+                        try { console.log('profilePhoto loaded'); } catch(e){}
+                    });
+                })();
+            </script>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+                <p>Combining data analysis, business intelligence, and full-stack development capabilities</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Data & Business Intelligence</h3>
+                    <p>Expertise in transforming raw data into actionable insights</p>
+                    <div class="skill-list">
+                        <span class="skill-tag highlight">Power BI</span>
+                        <span class="skill-tag highlight">DAX</span>
+                        <span class="skill-tag">Power Query</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag highlight">SQL</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">Data Visualization</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                    <p>Full-stack development with modern technologies</p>
+                    <div class="skill-list">
+                        <span class="skill-tag highlight">Python</span>
+                        <span class="skill-tag">pandas</span>
+                        <span class="skill-tag highlight">JavaScript</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">HTML5/CSS3</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> AI & Automation</h3>
+                    <p>Leveraging AI to enhance applications and workflows</p>
+                    <div class="skill-list">
+                        <span class="skill-tag highlight">Prompt Engineering</span>
+                        <span class="skill-tag">AI-assisted Workflows</span>
+                        <span class="skill-tag">LLM Integration</span>
+                        <span class="skill-tag">Automation Scripts</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-bullhorn"></i> Marketing & Analytics</h3>
+                    <p>Digital marketing expertise with performance optimization</p>
+                    <div class="skill-list">
+                        <span class="skill-tag highlight">Meta Ads Manager</span>
+                        <span class="skill-tag">TikTok Ads</span>
+                        <span class="skill-tag">Campaign Analytics</span>
+                        <span class="skill-tag">ROAS Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Real-world applications showcasing my technical capabilities</p>
+            </div>
+            
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img portrait">
+                        <img class="previewable" src="assets/images/mobdla.jpeg" alt="Mobdla Home Screen (Mobile)" onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1400&auto=format&fit=crop'">
+                    </div>
+                    <div class="project-content">
+                        <h3>Mobdla — Real Estate CRM & Exchange App</h3>
+                        <p>Mobile-first CRM and property exchange app for listing management, offers, and customer interactions. Designed for brokers and agents with analytics and quick transaction flows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Postgres</span>
+                            <span class="tech-tag">People Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project-real-estate.html" class="btn">View Details</a>
+                            <a href="https://www.mobdla.com/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img class="previewable" src="assets/images/HR_Dashboard.png" alt="HR Dashboard" onerror="this.src='https://images.unsplash.com/photo-1526378723207-5f3b8b0901a4?q=80&w=1400&auto=format&fit=crop'">
+                    </div>
+                    <div class="project-content">
+                        <h3>HR & People Analytics Dashboards</h3>
+                        <p>HR-focused Power BI dashboards covering headcount, turnover, attrition, and workforce analytics — built with DAX-driven KPIs and SQL data sources.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">DAX</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">People Analytics</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project-power-bi.html" class="btn">View Details</a>
+                            <a href="project-power-bi.html#dashboard" class="btn btn-accent">See Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img class="previewable" src="assets/images/survival_prediction.png" alt="Survival Prediction Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Survival Prediction (Machine Learning)</h3>
+                        <p>Data science project analyzing survival outcomes using data cleaning, feature engineering, and predictive modeling with clear evaluation metrics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">pandas</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project-ml.html" class="btn">View Details</a>
+                            <a href="https://github.com/Hussain-rgb" target="_blank" rel="noopener" class="btn btn-accent">Code Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Examples -->
+    <section id="examples" class="examples">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skill Demonstrations</h2>
+                <p>Interactive examples showcasing my technical capabilities</p>
+            </div>
+            
+            <div class="examples-container">
+                <div class="example-card" id="dataExample">
+                    <h3><i class="fas fa-chart-bar"></i> Power BI / Data Analysis</h3>
+                    <p>Interactive data visualization example. Choose a region and metric — values are computed from sample dataset (realistic demo).</p>
+                    
+                    <div class="example-controls">
+                        <label for="regionSelect">Select Region:</label>
+                        <select id="regionSelect" class="btn" style="padding: 8px 15px;">
+                            <option value="north">North</option>
+                            <option value="south">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                        </select>
+                        
+                        <label for="metricSelect">Metric:</label>
+                        <select id="metricSelect" class="btn" style="padding: 8px 15px;">
+                            <option value="sales">Sales</option>
+                            <option value="profit">Profit</option>
+                            <option value="customers">Customers</option>
+                            <option value="conversion">Conversion Rate</option>
+                        </select>
+                    </div>
+                    
+                    <div class="example-output" id="dataOutput">
+                        <h4>Sales Dashboard Preview</h4>
+                        <p>Region: <span id="selectedRegion">North</span></p>
+                        <p>Metric: <span id="selectedMetric">Sales</span></p>
+                        <p>Current Value: <span id="metricValue">$245,780</span></p>
+                        <p>Change from last month: <span id="metricChange" style="color: green;">+12.5%</span></p>
+                        <p>Trend (last 3 months): <span id="metricTrend">$210k → $225k → $246k</span></p>
+                        <div style="background: linear-gradient(to right, #3498db, #2c3e50); height: 20px; width: 80%; margin-top: 10px; border-radius: 10px;"></div>
+                    </div>
+                </div>
+                
+                <div class="example-card" id="sqlExample">
+                    <h3><i class="fas fa-code"></i> SQL Query Simulator</h3>
+                    <p>Interactive SQL simulator. Pick filters to generate and run a query against a sample dataset.</p>
+                    
+                    <div class="example-controls sql-controls">
+                        <div class="control">
+                            <label for="citySelect">City</label>
+                            <select id="citySelect" class="btn" style="padding:8px 15px">
+                                <option value="any">Any</option>
+                                <option value="Cairo">Cairo</option>
+                                <option value="Giza">Giza</option>
+                                <option value="Alexandria">Alexandria</option>
+                            </select>
+                        </div>
+
+                        <div class="control">
+                            <label for="unitType">Unit Type</label>
+                            <select id="unitType" class="btn" style="padding:8px 15px">
+                                <option value="any">Any</option>
+                                <option value="Apartment">Apartment</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Studio">Studio</option>
+                            </select>
+                        </div>
+
+                        <div class="control">
+                            <label for="minPrice">Min Price</label>
+                            <input id="minPrice" type="number" class="btn" style="padding:8px 15px;width:100%" placeholder="0">
+                        </div>
+
+                        <div class="control">
+                            <label for="maxPrice">Max Price</label>
+                            <input id="maxPrice" type="number" class="btn" style="padding:8px 15px;width:100%" placeholder="2000000">
+                        </div>
+
+                        <div class="control buttons">
+                            <button id="runQuery" class="btn">Run Query</button>
+                            <button id="resetQuery" class="btn btn-accent">Reset Filters</button>
+                        </div>
+                    </div> 
+                    
+                    <div class="example-output" id="sqlOutput">
+                        <h4>SQL Query Results</h4>
+                        <p>Use the controls above to filter the sample dataset. Generated SQL will appear below.</p>
+                        <pre id="generatedSQL" style="background:#f3f3f3;padding:10px;border-radius:6px;margin-top:10px;overflow:auto"></pre>
+                        <div id="sqlResults" style="margin-top:10px"></div>
+                    </div>
+                </div>
+                
+                <div class="example-card" id="aiExample">
+                    <h3><i class="fas fa-robot"></i> AI Prompt Engineering</h3>
+                    <p>Enter unstructured text (e.g., a property description). The demo will extract structured fields and give a simple sentiment score.</p>
+                    
+                    <div class="example-controls">
+                        <textarea id="aiInput" style="width:100%;min-height:80px;padding:12px;border-radius:6px;border:1px solid #ddd;">Beautiful 3-bedroom apartment in New Cairo with modern finishes, 2 bathrooms, 150 square meters, priced at 2,500,000 EGP. Contact agent Mohamed at 0123-456-7890.</textarea>
+                        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                            <button id="extractData" class="btn">Extract Property Data</button>
+                            <button id="analyzeSentiment" class="btn btn-accent">Analyze Sentiment</button>
+                            <button id="clearAI" class="btn" style="background:#aaa">Clear</button>
+                        </div>
+                    </div>
+                    
+                    <div class="example-output" id="aiOutput">
+                        <h4>AI Processing Results</h4>
+                        <div id="aiResults">Enter text and click a button above.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Education</h2>
+                <p>My professional journey and academic background</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Media Buyer (Meta & TikTok Ads)</h3>
+                        <h4>Real Estate Brokerage Company</h4>
+                        <p>Planned, executed, and optimized paid advertising campaigns on Meta and TikTok Ads platforms for real estate lead generation. Analyzed campaign performance metrics and optimized creatives to improve conversion rates.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Prompt Engineer & Full-Stack Developer</h3>
+                        <h4>Real Estate Exchange Platform</h4>
+                        <p>Designed and engineered a fully hosted, AI-assisted full-stack web application for real estate exchange. Utilized prompt engineering to integrate AI capabilities for data interpretation and workflow automation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>Digital Egypt Pioneers Initiative</h3>
+                        <h4>Power BI Engineer Track</h4>
+                        <p>Selected participant in a national initiative focused on developing industry-ready data professionals. Applied Power BI, Power Query, DAX, and SQL to build interactive dashboards and analytical reports for real-world business scenarios.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor's Degree in Management Information Systems</h3>
+                        <h4>Helwan University</h4>
+                        <p>Senior year student with relevant coursework in Data Analysis, Database Management Systems, Business Intelligence, Systems Analysis & Design, and Computer Networks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Feel free to reach out for collaborations or opportunities</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:hussenr039@gmail.com">hussenr039@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://www.linkedin.com/in/hussen-ragab-0557b6309/" target="_blank" rel="noopener">linkedin.com/in/hussen-ragab-0557b6309</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/Hussain-rgb" target="_blank" rel="noopener">github.com/Hussain-rgb</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/201094714277?text=Hi%20Hussain%2C%20I%20found%20you%20on%20your%20portfolio" target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp">+20 109 471 4277</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-facebook-messenger"></i>
+                        </div>
+                        <div>
+                            <h3>Messenger</h3>
+                            <p><a href="https://m.me/hussen.ragab.77" target="_blank" rel="noopener noreferrer" aria-label="Message on Facebook Messenger">Open chat</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Egypt</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Contact & Chats</h3>
+                    <p class="contact-note">Choose your preferred app to start a conversation.</p>
+                    <div class="contact-buttons">
+                        <a id="emailBtn" href="mailto:hussenr039@gmail.com?subject=Portfolio%20Contact" class="btn btn-email" title="Send an email" aria-label="Send an email"><i class="fas fa-envelope" style="margin-right:8px"></i><span>Email</span></a>
+                        <a id="waBtn" href="https://wa.me/201094714277?text=Hi%20Hussain%2C%20I%20found%20you%20on%20your%20portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-wa" title="Start WhatsApp chat" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" style="margin-right:8px"></i><span>WhatsApp</span></a>
+                        <a id="messengerBtn" href="https://m.me/hussen.ragab.77" target="_blank" rel="noopener noreferrer" class="btn btn-messenger" title="Open Messenger" aria-label="Open Facebook Messenger"><i class="fab fa-facebook-messenger" style="margin-right:8px"></i><span>Messenger</span></a>
+                        <a id="linkedinBtn" href="https://www.linkedin.com/in/hussen-ragab-0557b6309/" target="_blank" rel="noopener" class="btn btn-linkedin" title="Open LinkedIn profile" aria-label="Open LinkedIn profile"><i class="fab fa-linkedin" style="margin-right:8px"></i><span>LinkedIn</span></a>
+                        <a id="facebookBtn" href="https://www.facebook.com/hussen.ragab.77/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook" title="Open Facebook profile" aria-label="Open Facebook profile"><i class="fab fa-facebook" style="margin-right:8px"></i><span>Facebook</span></a>
+                    </div>
+                </div>
+
+                <script>
+                    (function(){
+                        // Detect mobile (simple, robust check for common mobile UA substrings)
+                        const isMobile = /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent || '');
+
+                        const waBtn = document.getElementById('waBtn');
+                        const messengerBtn = document.getElementById('messengerBtn');
+                        const linkedinBtn = document.getElementById('linkedinBtn');
+                        const emailBtn = document.getElementById('emailBtn');
+                        const facebookBtn = document.getElementById('facebookBtn');
+
+                        // WhatsApp: use app scheme on mobile for direct open, fallback to wa.me on desktop
+                        if (waBtn) {
+                            const text = encodeURIComponent('Hi Hussain, I found you on your portfolio');
+                            if (isMobile) {
+                                waBtn.href = `whatsapp://send?phone=201094714277&text=${text}`;
+                                waBtn.setAttribute('data-scheme','whatsapp');
+                            } else {
+                                waBtn.href = `https://wa.me/201094714277?text=${text}`;
+                                waBtn.setAttribute('data-scheme','web');
+                            }
+                        }
+
+                        // Messenger: m.me works across devices and will open app when possible
+                        if (messengerBtn) {
+                            messengerBtn.href = 'https://m.me/hussen.ragab.77';
+                            messengerBtn.setAttribute('data-scheme','m.me');
+                        }
+
+                        // LinkedIn: attempt to use app deep link on mobile
+                        if (linkedinBtn) {
+                            if (isMobile) {
+                                // linkedin://in/<slug> is used by some mobile apps
+                                linkedinBtn.href = 'linkedin://in/hussen-ragab-0557b6309/';
+                                linkedinBtn.setAttribute('data-scheme','linkedin-app');
+                            } else {
+                                linkedinBtn.href = 'https://www.linkedin.com/in/hussen-ragab-0557b6309/';
+                                linkedinBtn.setAttribute('data-scheme','web');
+                            }
+                        }
+
+                        // Facebook: open profile (will redirect to app on mobile if possible)
+                        if (facebookBtn) {
+                            facebookBtn.href = 'https://www.facebook.com/hussen.ragab.77/';
+                            facebookBtn.setAttribute('data-scheme','web');
+                        }
+
+                        // Email stays mailto
+                        if (emailBtn) {
+                            emailBtn.href = 'mailto:hussenr039@gmail.com?subject=Portfolio%20Contact';
+                        }
+
+                        // Optional: detect clicks on app-scheme links and fallback after timeout to web URLs
+                        // (Example for WhatsApp / Linkedin on mobile where app may not be installed)
+                        function openWithFallback(anchor, appUrl, webUrl) {
+                            if (!anchor) return;
+                            anchor.addEventListener('click', function(e){
+                                if (!isMobile) return; // just use default (web)
+                                // attempt to open appUrl; if it fails, fallback to webUrl after 900ms
+                                const now = Date.now();
+                                const fallback = function(){ window.location.href = webUrl; };
+                                // set data
+                                setTimeout(function(){
+                                    // if the page is still visible and time elapsed
+                                    if (Date.now() - now < 1200) fallback();
+                                }, 900);
+                                // set the actual href to appUrl so browser will try to open it
+                                anchor.href = appUrl;
+                            });
+                        }
+
+                        // Apply fallback pattern for WhatsApp and LinkedIn on mobile
+                        if (isMobile && waBtn) openWithFallback(waBtn, `whatsapp://send?phone=201094714277&text=${encodeURIComponent('Hi Hussain, I found you on your portfolio')}`, `https://wa.me/201094714277?text=${encodeURIComponent('Hi Hussain, I found you on your portfolio')}`);
+                        if (isMobile && linkedinBtn) openWithFallback(linkedinBtn, 'linkedin://in/hussen-ragab-0557b6309/', 'https://www.linkedin.com/in/hussen-ragab-0557b6309/');
+
+                        // pop-in stagger animation for contact buttons
+                        try {
+                            const contactBtns = document.querySelectorAll('.contact-buttons .btn');
+                            contactBtns.forEach((b,i)=> setTimeout(()=> b.classList.add('popin'), i * 90));
+                        } catch(e) {}
+
+                    })();
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h2 style="color: white;">Hussain Ragab</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Business Intelligence & Data Analyst | Full‑Stack Developer</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/hussen-ragab-0557b6309/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Hussain-rgb" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/201094714277" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://m.me/hussen.ragab.77" target="_blank" rel="noopener noreferrer" title="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-medium"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Hussain Ragab Abdul Hasseb. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Data Analysis Example
+        const regionSelect = document.getElementById('regionSelect');
+        const metricSelect = document.getElementById('metricSelect');
+        const selectedRegion = document.getElementById('selectedRegion');
+        const selectedMetric = document.getElementById('selectedMetric');
+        const metricValue = document.getElementById('metricValue');
+        const metricChange = document.getElementById('metricChange');
+        
+        // ---------- Interactive Examples JS (improved) ----------
+        // Data for interactive visualization (numeric, realistic values)
+        const numericData = {
+            north: { sales: 245780, profit: 48920, customers: 1245, conversion: 0.042, trend: [210000, 225000, 245780] },
+            south: { sales: 189450, profit: 32150, customers: 980, conversion: 0.038, trend: [175000, 182500, 189450] },
+            east:  { sales: 312670, profit: 62340, customers: 1560, conversion: 0.048, trend: [270000, 295000, 312670] },
+            west:  { sales: 278330, profit: 55210, customers: 1380, conversion: 0.045, trend: [255000, 265000, 278330] }
+        };
+
+        function formatMetric(metric, value) {
+            if (metric === 'sales' || metric === 'profit') return '$' + value.toLocaleString();
+            if (metric === 'customers') return value.toLocaleString();
+            if (metric === 'conversion') return (value*100).toFixed(1) + '%';
+            return value;
+        }
+
+        function calcChange(current, previous) {
+            if (previous === 0) return {pct: 0, sign: '+'};
+            const diff = current - previous;
+            const pct = (diff / previous) * 100;
+            return { pct: pct, sign: pct >= 0 ? '+' : '-' };
+        }
+
+        function updateDataVisualization() {
+            const region = regionSelect.value;
+            const metric = metricSelect.value;
+            const metricText = metric.charAt(0).toUpperCase() + metric.slice(1);
+
+            selectedRegion.textContent = region.charAt(0).toUpperCase() + region.slice(1);
+            selectedMetric.textContent = metricText;
+
+            const regionData = numericData[region];
+            const current = regionData[metric];
+            const previous = regionData.trend[1];
+            const change = calcChange(current, previous);
+
+            metricValue.textContent = formatMetric(metric, current);
+            metricChange.textContent = `${change.sign}${Math.abs(change.pct).toFixed(1)}%`;
+            metricChange.style.color = change.pct >= 0 ? 'var(--success)' : 'var(--accent)';
+
+            // Trend
+            const trend = regionData.trend.map(v => formatMetric(metric, v)).join(' → ');
+            const metricTrend = document.getElementById('metricTrend');
+            metricTrend.textContent = trend;
+        }
+
+        regionSelect.addEventListener('change', updateDataVisualization);
+        metricSelect.addEventListener('change', updateDataVisualization);
+
+        // ---------------- SQL Simulator (filter + generated SQL) ----------------
+        const runQueryBtn = document.getElementById('runQuery');
+        const resetQueryBtn = document.getElementById('resetQuery');
+        const sqlOutput = document.getElementById('sqlOutput');
+        const generatedSQLPre = document.getElementById('generatedSQL');
+        const sqlResultsDiv = document.getElementById('sqlResults');
+
+        const sampleRows = [
+            { id: 101, address: "123 Nile St, Cairo", city: 'Cairo', price: 950000, bedrooms: 4, bathrooms: 3, sqft: 2800, sale_date: "2023-06-15", sale_price: 920000, unit_type: 'Apartment' },
+            { id: 102, address: "45 Pyramid Ave, Giza", city: 'Giza', price: 875000, bedrooms: 3, bathrooms: 2.5, sqft: 2400, sale_date: "2023-05-22", sale_price: 860000, unit_type: 'Villa' },
+            { id: 103, address: "78 Desert Rd, Cairo", city: 'Cairo', price: 1200000, bedrooms: 5, bathrooms: 4, sqft: 3500, sale_date: "2023-07-10", sale_price: 1150000, unit_type: 'Apartment' },
+            { id: 104, address: "7 Garden St, Alexandria", city: 'Alexandria', price: 420000, bedrooms: 2, bathrooms: 1, sqft: 1200, sale_date: "2023-03-12", sale_price: 410000, unit_type: 'Studio' }
+        ];
+
+        function buildSQL(filters) {
+            let where = [];
+            if (filters.city && filters.city !== 'any') where.push(`p.city = '${filters.city.replace("'", "\\'")}'`);
+            if (filters.minPrice) where.push(`p.price >= ${Number(filters.minPrice)}`);
+            if (filters.maxPrice) where.push(`p.price <= ${Number(filters.maxPrice)}`);
+            if (filters.unitType && filters.unitType !== 'any') where.push(`p.unit_type = '${filters.unitType.replace("'", "\\'")}'`);
+            const whereClause = where.length ? '\nWHERE ' + where.join('\n  AND ') : '';
+
+            return `SELECT p.property_id, p.address, p.price, p.bedrooms, p.bathrooms, p.square_feet, s.sale_date, s.sale_price\nFROM properties p\nJOIN sales s ON p.property_id = s.property_id${whereClause}\nORDER BY p.price DESC\nLIMIT 50;`;
+        }
+
+        function renderTable(rows) {
+            if (!rows.length) { sqlResultsDiv.innerHTML = '<p>No rows match the filters.</p>'; return; }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<thead><tr style="background:#3498db;color:white;"><th style="padding:8px;text-align:left;">ID</th><th style="padding:8px;text-align:left;">Address</th><th style="padding:8px;text-align:left;">City</th><th style="padding:8px;text-align:left;">Price</th><th style="padding:8px;text-align:left;">Beds</th><th style="padding:8px;text-align:left;">Sale Date</th></tr></thead><tbody>`;
+            rows.forEach(r => {
+                html += `<tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">${r.id}</td><td style="padding:8px;">${r.address}</td><td style="padding:8px;">${r.city}</td><td style="padding:8px;">$${r.price.toLocaleString()}</td><td style="padding:8px;">${r.bedrooms}</td><td style="padding:8px;">${r.sale_date}</td></tr>`;
+            });
+            html += `</tbody></table>`;
+            sqlResultsDiv.innerHTML = html;
+        }
+
+        runQueryBtn.addEventListener('click', () => {
+            const city = document.getElementById('citySelect').value;
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            const unitType = document.getElementById('unitType').value;
+
+            const filters = { city, minPrice, maxPrice, unitType };
+            generatedSQLPre.textContent = buildSQL(filters);
+
+            const filtered = sampleRows.filter(r => {
+                if (city && city !== 'any' && r.city !== city) return false;
+                if (minPrice && r.price < Number(minPrice)) return false;
+                if (maxPrice && r.price > Number(maxPrice)) return false;
+                if (unitType && unitType !== 'any' && r.unit_type !== unitType) return false;
+                return true;
+            }).sort((a,b) => b.price - a.price);
+
+            renderTable(filtered);
+        });
+
+        resetQueryBtn.addEventListener('click', () => {
+            document.getElementById('citySelect').value = 'any';
+            document.getElementById('unitType').value = 'any';
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+            generatedSQLPre.textContent = '';
+            sqlResultsDiv.innerHTML = '';
+        });
+
+        // ---------------- AI Prompt Engineering (client-side heuristics) ----------------
+        const extractDataBtn = document.getElementById('extractData');
+        const analyzeSentimentBtn = document.getElementById('analyzeSentiment');
+        const aiResults = document.getElementById('aiResults');
+        const aiInput = document.getElementById('aiInput');
+        const clearAI = document.getElementById('clearAI');
+
+        function extractProperty(text) {
+            const out = {};
+            const priceMatch = text.match(/(\d[\d,\.\s]*\d)\s*(EGP|LE|EGP\.|EGP|USD|\$)?/i);
+            if (priceMatch) out.price = priceMatch[1].replace(/[,\s]/g,'');
+            const beds = text.match(/(\d+)\s*-?\s*bed(room)?s?/i);
+            if (beds) out.bedrooms = Number(beds[1]);
+            const baths = text.match(/(\d+(?:\.\d+)?)\s*-?\s*bath(room)?s?/i);
+            if (baths) out.bathrooms = Number(baths[1]);
+            const area = text.match(/(\d+(?:[\.,]\d+)?)\s*(m2|square meters|sqm|square metres)/i);
+            if (area) out.area = area[1];
+            const phone = text.match(/(\+?\d[\d\-\s]{6,}\d)/);
+            if (phone) out.phone = phone[1].trim();
+            const loc = text.match(/in\s+([A-Za-z\s]+(?:Cairo|New Cairo|Giza|Alexandria)?)/i);
+            if (loc) out.location = loc[1].trim();
+
+            // simple name heuristic: 'Contact' or 'agent' followed by a name
+            const name = text.match(/(Contact|Agent|Agent:?)\s+([A-Z][a-zA-Z\-\s]{1,30})/i);
+            if (name) out.contact = name[2].trim();
+            return out;
+        }
+
+        function analyzeSentimentText(text) {
+            const positive = ['excellent','modern','responsive','good','great','clean','spacious','luxury','efficient'];
+            const negative = ['delayed','parking','issue','problem','bad','poor','expensive','slow'];
+
+            const t = text.toLowerCase();
+            let score = 0; let posCount = 0, negCount = 0;
+            positive.forEach(w => { if (t.includes(w)) { score += 1; posCount++; } });
+            negative.forEach(w => { if (t.includes(w)) { score -= 1; negCount++; } });
+
+            const total = Math.max(1, posCount + negCount);
+            const positivePct = Math.round((posCount / total) * 100);
+            const negativePct = Math.round((negCount / total) * 100);
+            const neutralPct = Math.max(0, 100 - positivePct - negativePct);
+            const label = score > 0 ? 'Positive' : score < 0 ? 'Negative' : 'Neutral';
+            return { positivePct, negativePct, neutralPct, label, posCount, negCount };
+        }
+
+        extractDataBtn.addEventListener('click', () => {
+            const text = aiInput.value || '';
+            const obj = extractProperty(text);
+            aiResults.innerHTML = `<pre style="background:#f7f7f7;padding:12px;border-radius:6px;">` + JSON.stringify(obj, null, 2) + `</pre>`;
+        });
+
+        analyzeSentimentBtn.addEventListener('click', () => {
+            const text = aiInput.value || '';
+            const res = analyzeSentimentText(text);
+            aiResults.innerHTML = `<h4>Sentiment: ${res.label}</h4>
+                <p>Positive: ${res.positivePct}% &nbsp; Neutral: ${res.neutralPct}% &nbsp; Negative: ${res.negativePct}%</p>`;
+        });
+
+        clearAI.addEventListener('click', () => { aiInput.value = ''; aiResults.innerHTML = 'Enter text and click a button above.'; });
+
+        // Initialize data visualization
+        updateDataVisualization();
+
+        /* Image preview lightbox */
+        const previewableImages = document.querySelectorAll('img.previewable');
+        const imgModal = document.createElement('div');
+        imgModal.className = 'img-modal';
+        imgModal.id = 'imgModal';
+        imgModal.innerHTML = `
+            <span class="img-modal-close" id="imgModalClose">&times;</span>
+            <img class="img-modal-content" id="imgModalContent" src="" alt="">
+            <div class="img-modal-caption" id="imgModalCaption"></div>
+        `;
+        document.body.appendChild(imgModal);
+
+        const imgModalContent = document.getElementById('imgModalContent');
+        const imgModalCaption = document.getElementById('imgModalCaption');
+        const imgModalClose = document.getElementById('imgModalClose');
+
+        function openImageModal(src, alt) {
+            imgModalContent.src = src;
+            imgModalContent.alt = alt || '';
+            imgModalCaption.textContent = alt || '';
+            imgModal.classList.add('open');
+        }
+
+        function closeImageModal() {
+            imgModal.classList.remove('open');
+            imgModalContent.src = '';
+            imgModalCaption.textContent = '';
+        }
+
+        previewableImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                // prefer a higher-resolution version if provided in data-full
+                const full = img.dataset.full || img.src;
+                openImageModal(full, img.alt || '');
+            });
+        });
+
+        imgModalClose.addEventListener('click', closeImageModal);
+        imgModal.addEventListener('click', (e) => { if (e.target === imgModal) closeImageModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeImageModal(); });
+
+        // Entrance animations: observe elements and add 'in-view'
+        (function(){
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        // stagger children if any
+                        const children = entry.target.querySelectorAll('.fade-up');
+                        if (children.length) {
+                            children.forEach((c, i) => setTimeout(()=>c.classList.add('in-view'), i * 60));
+                        }
+                        // stop observing after animation fires
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+            // target elements
+            document.querySelectorAll('.section-title, .project-card, .skill-category, .example-card, .timeline-item').forEach(el => {
+                el.classList.add('fade-up');
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>

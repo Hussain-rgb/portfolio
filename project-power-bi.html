@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Business Intelligence Dashboards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{--primary:#2c3e50;--secondary:#3498db;--light:#f7fbff}
+    body{font-family:Segoe UI, Tahoma, Verdana, sans-serif;margin:0;background:var(--light);color:#222}
+    .container{width:90%;max-width:980px;margin:40px auto;padding:20px;background:white;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+    .row{display:flex;gap:20px;flex-wrap:wrap}
+    .screenshot{flex:1;min-width:260px;height:360px;overflow:hidden;border-radius:6px}
+    .screenshot img{width:100%;height:100%;object-fit:cover;cursor:pointer}
+    /* Entrance animation */
+    .container{opacity:0;transform:translateY(10px);transition:all 360ms cubic-bezier(.22,.9,.28,1)}
+    .container.in-view{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){ .container{transition:none} }
+    .btn{display:inline-block;padding:10px 18px;background:var(--secondary);color:white;text-decoration:none;border-radius:6px;margin-right:8px;transition:transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms; box-shadow:0 8px 26px rgba(0,0,0,0.06)}
+    .section{margin-top:18px}
+    a.back{display:inline-block;margin-top:20px;color:var(--primary);text-decoration:none}
+
+    /* Lightbox */
+    .img-modal { position: fixed; z-index: 2000; left:0; top:0; width:100%; height:100%; background: rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; padding:20px; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .img-modal.open { display:flex; }
+    .img-modal-content { max-width:95%; max-height:95%; box-shadow:0 20px 40px rgba(0,0,0,0.6); border-radius:6px }
+    .img-modal-close { position:absolute; top:18px; right:24px; font-size:34px; color:white; cursor:pointer; opacity:0.95 }
+    .img-modal-caption { color: rgba(255,255,255,0.85); margin-top:12px; text-align:center }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>HR & People Analytics Dashboards</h1>
+    <p>HR-focused Power BI dashboards for headcount, turnover, attrition, and workforce analytics, built using DAX, data modeling and SQL Server integration.</p>
+
+    <div class="row">
+      <div class="screenshot"><img class="previewable" src="assets/images/HR_Dashboard.png" alt="HR dashboard screenshot" onerror="this.src='https://images.unsplash.com/photo-1526378723207-5f3b8b0901a4?q=80&w=1400&auto=format&fit=crop'"></div>
+      <div style="flex:1;min-width:260px">
+        <h3>Dashboard Highlights</h3>
+        <ul>
+          <li>Headcount & turnover by department</li>
+          <li>Attrition drivers and risk scoring</li>
+          <li>Employee demographics and diversity metrics</li>
+          <li>Custom DAX measures and scheduled refreshes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;border-radius:6px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.06)">
+      <img class="previewable" src="assets/images/HR_Dashboard.png" alt="HR dashboard preview" style="width:100%;height:420px;object-fit:cover;display:block" onerror="this.src='https://images.unsplash.com/photo-1526378723207-5f3b8b0901a4?q=80&w=1400&auto=format&fit=crop'">
+    </div>
+
+        <div class="section">
+          <a href="#dashboard" class="btn">See Dashboard</a>
+          <a href="project-real-estate.html" class="btn">Related Project</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="dashboard" style="margin-top:26px">Dashboard Preview</h2>
+    <p>Below is a static preview image of a sample dashboard (embedded demos require published reports).</p>
+    <div style="margin-top:12px;border-radius:6px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.06)">
+      <img class="previewable" src="assets/images/HR_Dashboard.png" alt="HR dashboard preview" style="width:100%;height:420px;object-fit:cover;display:block" onerror="this.src='https://images.unsplash.com/photo-1526378723207-5f3b8b0901a4?q=80&w=1400&auto=format&fit=crop'">
+    </div>
+
+    <a class="back" href="deepseek_html_20251217_e3add4.html">← Back to Portfolio</a>
+
+    <!-- Lightbox markup -->
+    <div id="imgModal" class="img-modal">
+      <span class="img-modal-close" id="imgModalClose">&times;</span>
+      <img class="img-modal-content" id="imgModalContent" src="" alt="">
+      <div class="img-modal-caption" id="imgModalCaption"></div>
+    </div>
+
+    <script>
+      // Generic lightbox for previewable images on this page
+      document.querySelectorAll('img.previewable').forEach(img => {
+        const modal = document.getElementById('imgModal');
+        const content = document.getElementById('imgModalContent');
+        const caption = document.getElementById('imgModalCaption');
+        const close = document.getElementById('imgModalClose');
+
+        function open(){ content.src = img.src; caption.textContent = img.alt || ''; modal.classList.add('open'); }
+        function closeModal(){ modal.classList.remove('open'); content.src = ''; caption.textContent = ''; }
+
+        img.addEventListener('click', open);
+        close.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeModal(); });
+
+      // simple entrance animation
+      window.addEventListener('DOMContentLoaded', ()=>{ setTimeout(()=>document.querySelector('.container').classList.add('in-view'), 100); });
+      });
+    </script>
+  </div>
+</body>
+</html>
